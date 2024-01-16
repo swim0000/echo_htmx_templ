@@ -12,9 +12,20 @@
 
 * [Htmx-go](https://github.com/angelofallars/htmx-go) to assist with htmx headers.
 
-Add a your own .env to your directory and paste in the line below changing to whatever your db variables are.
+Add your own .env file to your directory and paste in the line below, changing values to match your db.
 
 ```.env
 DATABASE_URL=postgres://yourusername:yourpassword@localhost:5432/yourdbname?sslmode=disable
+```
+
+The simple db schema can be inputed with sql tools or with pgadmin.
+
+```sql
+CREATE TABLE IF NOT EXISTS signup (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    user_password VARCHAR(50) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
