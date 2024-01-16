@@ -12,7 +12,7 @@ func main() {
 	e.Use(middleware.CORS())
 	e.Static("/static", "static")
 
-	e.GET("/signup", handlers.SignupFormHandler)
+	e.GET("/signup", handlers.SignupHandler)
 	e.POST("/signup", handlers.SignupHandler)
 
 	e.Logger.Fatal(e.Start(":1323"))
