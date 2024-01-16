@@ -8,7 +8,6 @@ require (
 )
 
 require (
-	github.com/angelofallars/htmx-go v0.4.1 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
@@ -27,5 +26,6 @@ require (
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/a-h/templ v0.2.513
+	github.com/angelofallars/htmx-go v0.4.1
 	github.com/labstack/echo/v4 v4.11.4
 )

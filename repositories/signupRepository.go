@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	sq "github.com/Masterminds/squirrel"
-	db "github.com/swim0000/echo_htmx_templ/db"
+	database "github.com/swim0000/echo_htmx_templ/db"
 	"github.com/swim0000/echo_htmx_templ/models"
 )
 
 func InsertSignup(email string, password string) (*models.Signup, error) {
-	dbConn := db.ConnectDB()
+	dbConn := database.GetDB()
 	defer dbConn.Close()
 
 	query := sq.Insert("signup").

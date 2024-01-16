@@ -10,7 +10,7 @@ import (
 )
 
 func GetSignup(signupID int64) (*models.Signup, error) {
-	dbConn := database.ConnectDB()
+	dbConn := database.GetDB()
 	defer dbConn.Close()
 
 	query := squirrel.Select("*").From("signup").Where(squirrel.Eq{"id": signupID})
