@@ -15,6 +15,11 @@ func InsertSignup(email string, password string) (*models.Signup, error) {
 	query := sq.Insert("signup").
 		Columns("user_email", "user_password").
 		Values(email, password)
+	sql, args, err := query.ToSql()
+	if err != nil {
+		return nil, fmt.Errorf("failed to generate SQL query: %w", err)
+	}
+	fmt.Println("Generated SQL query:", sql, args)
 
 	result, err := query.RunWith(dbConn).Exec()
 	if err != nil {

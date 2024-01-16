@@ -18,7 +18,6 @@ func init() {
 		log.Fatal("Error loading .env file")
 	}
 
-	// Initialize the database connection pool
 	db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatal("Failed to connect to the database")
@@ -34,7 +33,6 @@ func init() {
 	db.SetConnMaxLifetime(time.Hour)
 }
 
-// GetDB returns the initialized database connection pool
 func GetDB() *sql.DB {
 	return db
 }
