@@ -1,4 +1,4 @@
-package main
+package models
 
 type UserLogin struct {
 	email    string

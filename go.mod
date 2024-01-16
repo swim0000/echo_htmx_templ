@@ -3,9 +3,7 @@ module github.com/swim0000/echo_htmx_templ
 go 1.21.6
 
 require (
-	github.com/a-h/templ v0.2.513
 	github.com/joho/godotenv v1.5.1
-	github.com/labstack/echo/v4 v4.11.4
 	github.com/lib/pq v1.10.9
 )
 
@@ -19,4 +17,9 @@ require (
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+)
+
+require (
+	github.com/a-h/templ v0.2.513
+	github.com/labstack/echo/v4 v4.11.4
 )
