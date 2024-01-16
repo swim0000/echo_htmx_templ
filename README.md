@@ -14,12 +14,12 @@
 
 ### Prerequisites
 
-*go installs
+* go installs
 ```
 go install github.com/a-h/templ/cmd/templ@latest 
 ```
 
-*go gets
+* go gets
 ```
 go get github.com/labstack/echo/v4
 go get github.com/labstack/echo/v4/middleware
@@ -30,20 +30,19 @@ go get github.com/lib/pq
 go get github.com/joho/godotenv
 ```
 
-*Add your own .env file to your directory and paste in the line below, changing values to match your db.
+* Add your own .env file to your directory and paste in the line below, changing values to match your db.
 
 ```.env
 DATABASE_URL=postgres://yourusername:yourpassword@localhost:5432/yourdbname?sslmode=disable
 ```
 
-*The simple db schema can be inputed with sql tools or with pgadmin.
+* Db schema needs to be inputed with sql tools or with pgadmin.
 
 ```sql
 CREATE TABLE IF NOT EXISTS signup (
     id SERIAL PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
+    user_email VARCHAR(255) NOT NULL,
     user_password VARCHAR(50) NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
