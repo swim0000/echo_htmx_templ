@@ -1,6 +1,7 @@
 package models
 
-type UserLogin struct {
-	email    string
-	password string
+type Signup struct {
+	ID       int
+	Email    string
+	Password string
 }

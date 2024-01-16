@@ -7,7 +7,10 @@ import (
 
 func main() {
 	e := echo.New()
+	e.Static("/static", "static")
+
 	e.GET("/signup", handlers.SignupFormHandler)
+	e.POST("/signup", handlers.SignupHandler)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }

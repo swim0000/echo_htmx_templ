@@ -5,5 +5,5 @@ import (
 )
 
 func SignupHandler(c echo.Context) error {
-	return nil
+
 }
