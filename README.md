@@ -4,7 +4,7 @@
 
 * [Templ](https://templ.guide/project-structure/project-structure) as the html component generator, which generates html(.templ) files in to go code.
 
-* [Echo](https://echo.labstack.com/docs) as the web framework for routing, middleware and handlering data.
+* [Echo](https://echo.labstack.com/docs) as the web framework for routing, middleware and handling requests.
 
 * Postgres to store data.
 
