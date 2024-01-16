@@ -9,11 +9,11 @@ import (
 	"github.com/swim0000/echo_htmx_templ/models"
 )
 
-func GetSignup(userID int64) (*models.Signup, error) {
+func GetSignup(signupID int64) (*models.Signup, error) {
 	dbConn := database.ConnectDB()
 	defer dbConn.Close()
 
-	query := squirrel.Select("*").From("users").Where(squirrel.Eq{"id": userID})
+	query := squirrel.Select("*").From("signup").Where(squirrel.Eq{"id": signupID})
 
 	var signup models.Signup
 	err := query.RunWith(dbConn).QueryRow().Scan(&signup.ID, &signup.Email, &signup.Password)

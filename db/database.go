@@ -17,7 +17,7 @@ func ConnectDB() *sql.DB {
 	}
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
-		panic(err)
+		fmt.Println("Failed connection!")
 	}
 	fmt.Println("Successfully connected!")
 	return db

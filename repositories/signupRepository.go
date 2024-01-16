@@ -13,7 +13,7 @@ func InsertSignup(email string, password string) (*models.Signup, error) {
 	defer dbConn.Close()
 
 	query := sq.Insert("signup").
-		Columns("email", "password").
+		Columns("user_email", "user_password"). // Corrected column name here
 		Values(email, password)
 
 	result, err := query.RunWith(dbConn).Exec()
