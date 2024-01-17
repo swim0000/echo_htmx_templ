@@ -19,13 +19,11 @@ func SignupHandler(c echo.Context) error {
 			fmt.Println("Error binding form data:", err)
 			return err
 		}
-
 		if err := repositories.InsertSignup(form); err != nil {
 			fmt.Println("Error inserting signup:", err)
 			return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to save signup"})
 		}
-
-		return c.JSON(http.StatusOK, form)
+		return util.Render(c, http.StatusOK, views.EmailDisplay(form.Email))
 	} else {
 		return util.Render(c, http.StatusOK, views.SignupForm())
 	}
