@@ -13,14 +13,14 @@ func InsertSignup(signup *models.Signup) error {
 
 	stmt, err := dbConn.Prepare("INSERT INTO signup (user_email, user_password) VALUES ($1, $2)")
 	if err != nil {
-		log.Panicln(err)
+		log.Println(err)
 		return err
 	}
 	defer stmt.Close()
 
 	_, err = stmt.Exec(signup.Email, signup.Password)
 	if err != nil {
-		log.Panicln(err)
+		log.Println(err)
 		return err
 	}
 
