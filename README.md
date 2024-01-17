@@ -8,8 +8,6 @@
 
 * Postgres to store data.
 
-* [Squirrel](https://github.com/Masterminds/squirrel) to build safe sql queries.
-
 * [Htmx-go](https://github.com/angelofallars/htmx-go) to assist with htmx headers.
 
 ### Prerequisites
@@ -23,7 +21,6 @@ go install github.com/a-h/templ/cmd/templ@latest
 ```
 go get github.com/labstack/echo/v4
 go get github.com/labstack/echo/v4/middleware
-go get github.com/Masterminds/squirrel
 go get github.com/angelofallars/htmx-go
 go get github.com/a-h/templ
 go get github.com/lib/pq

@@ -9,7 +9,7 @@ import (
 	"github.com/swim0000/echo_htmx_templ/models"
 	"github.com/swim0000/echo_htmx_templ/repositories"
 	"github.com/swim0000/echo_htmx_templ/util"
-	views "github.com/swim0000/echo_htmx_templ/views/templates"
+	views "github.com/swim0000/echo_htmx_templ/views/pages"
 )
 
 func SignupHandler(c echo.Context) error {
