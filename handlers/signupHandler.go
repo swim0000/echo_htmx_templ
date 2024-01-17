@@ -20,8 +20,7 @@ func SignupHandler(c echo.Context) error {
 			return err
 		}
 
-		_, err := repositories.InsertSignup(form.Email, form.Password)
-		if err != nil {
+		if err := repositories.InsertSignup(form); err != nil {
 			fmt.Println("Error inserting signup:", err)
 			return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to save signup"})
 		}
@@ -31,19 +30,3 @@ func SignupHandler(c echo.Context) error {
 		return util.Render(c, http.StatusOK, views.SignupForm())
 	}
 }
-
-// func SignupHandler(c echo.Context) error {
-// 	form := new(models.Signup)
-// 	if err := c.Bind(form); err != nil {
-// 		fmt.Println("Error binding form data:", err)
-// 		return err
-// 	}
-
-// 	_, err := repositories.InsertSignup(form.Email, form.Password)
-// 	if err != nil {
-// 		fmt.Println("Error inserting signup:", err)
-// 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to save signup"})
-// 	}
-
-// 	return c.JSON(http.StatusOK, form)
-// }

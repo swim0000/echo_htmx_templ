@@ -1,33 +1,30 @@
 package repositories
 
 import (
-	"fmt"
+	"log"
 
-	sq "github.com/Masterminds/squirrel"
 	database "github.com/swim0000/echo_htmx_templ/db"
 	"github.com/swim0000/echo_htmx_templ/models"
 )
 
-func InsertSignup(email string, password string) (*models.Signup, error) {
+func InsertSignup(signup *models.Signup) error {
 	dbConn := database.GetDB()
 	defer dbConn.Close()
 
-	query := sq.Insert("signup").
-		Columns("user_email", "user_password").
-		Values(email, password)
-	sql, args, err := query.ToSql()
+	stmt, err := dbConn.Prepare("INSERT INTO signup (user_email, user_password) VALUES ($1, $2)")
 	if err != nil {
-		return nil, fmt.Errorf("failed to generate SQL query: %w", err)
+		log.Panicln(err)
+		return err
 	}
-	fmt.Println("Generated SQL query:", sql, args)
+	defer stmt.Close()
 
-	result, err := query.RunWith(dbConn).Exec()
+	_, err = stmt.Exec(signup.Email, signup.Password)
 	if err != nil {
-		return nil, fmt.Errorf("failed to insert signup: %w", err)
+		log.Panicln(err)
+		return err
 	}
-	id, err := result.LastInsertId()
-	if err != nil {
-		return nil, fmt.Errorf("failed to get LastInsertId: %w", err)
-	}
-	return GetSignup(id)
+
+	log.Println("User registered successfully!")
+
+	return nil
 }
